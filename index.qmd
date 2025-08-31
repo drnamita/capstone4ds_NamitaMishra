@@ -66,6 +66,22 @@ to add more work...*
 
 Cite new paper [@su2012linear]
 
+Introduction
+
+1. Forecasting the occurrence and non-occurrence of any disease is crucial in disease management. It requires long experimental procedures and non-outbreak prediction are not explored. Timely prediction of disease happenings could support effective implementation of preventative measures through early detection of disease outbreaks and non-outbreaks, providing valuable insights for mitigation strategies of novel diseases. [@gao2025early]
+
+
+2. In Bayesian inference, all unknowns—observable (data) as well as unobservables (parameters and auxiliary variables)—are considered to be random and assigned probability distributions.These distributions best summarize the available information, and Bayesian inference then updates prior knowledge about the unobservables with information about them contained in the data.
+The prior distribution and likelihood function are both necessary parts of a Bayesian analysis. Depending on the strength of information contained in the measurements, the prior distribution may or may not influence the outcome or parts thereof. [@Klauenberg2015]
+
+
+3. Using a Bayesian approach, This study projected the increase in the rates of Atherosclerotic cardiovascular disease (ASCVD) in Asian countries. Given the significant personal and societal burden, the study aimed to accurately forecast ASCVD incidence rates to inform health care policy development and investments to targeted population.
+Bayesian age-period-cohort (APC) models were then fitted to the observed data (1990-2021) to project age-standardized rates (with the mid-year 1990 population as the index) for the prevalence and mortality for IHD, stroke, and PAD from 2022 through 2040. Default log-normal priors chosen for each term in the model and the posterior estimates from the model fit were obtained to predict the incidence rates. [@Cotton2025]
+
+
+
+
+
 ## Methods
 
 -   Detail the models or algorithms used.
@@ -161,3 +177,10 @@ ggplot1 = murders %>% ggplot(mapping = aes(x=population/10^6, y=total))
 -   Discuss the implications of your results.
 
 ## References
+references.bib
+
+1.Gao S, Chakraborty AK, Greiner R, Lewis MA, Wang H. Early detection of disease outbreaks and non-outbreaks using incidence data: A framework using feature-based time series classification and machine learning. PLOS Computational Biology [Internet]. 2025 Feb 1 [cited 2025 Aug 30];21(2):e1012782. Available from: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012782
+
+2. Klauenberg, K., Wübbeler, G., Mickan, B., Harris, P., & Elster, C. (2015). A tutorial on Bayesian Normal linear regression. Metrologia, 52(6), 878–892. https://doi.org/10.1088/0026-1394/52/6/878Links to an external site.
+
+3. Cotton, A., Pedro RVO Salerno, M., Zhuo Chen, P., Salim Virani, M., Naveed Sattar, M., Sanjay Rajagopalan, M., & Salil V. Deo, M. (2025). Forecasting Atherosclerotic Cardiovascular Disease in South Asia Until 2040: A Bayesian Modeling Approach. JACC: Asia. https://doi.org/10.1016/J.JACASI.2025.06.014
