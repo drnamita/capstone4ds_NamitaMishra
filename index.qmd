@@ -66,16 +66,24 @@ to add more work...*
 
 Cite new paper [@su2012linear]
 
-Introduction
+#Introduction#
 
 1. Forecasting the occurrence and non-occurrence of any disease is crucial in disease management. It requires long experimental procedures and non-outbreak prediction are not explored. Timely prediction of disease happenings could support effective implementation of preventative measures through early detection of disease outbreaks and non-outbreaks, providing valuable insights for mitigation strategies of novel diseases. [@gao2025early]
 
+2. Rather than using expensive molecular information which is not easily available,the author identifies subjects at of cardiovascular disease (CVD),  thrugh the use of an alternative and an efficient approach to identifying by incorporating routinely-checked biological markers a cluster of multiple CVD risk factors like the metabolic syndrome, to classify the risk of underlying population by dint of Metabolic scores information  together with conventional risk factors (gender, heredity, smoking and other relevant factors). It is considered that different ethnic groups and areas with varied levels of socioeconomic status, have their own models which may not be applied to other areas with different socioeconomic status, because the baseline incidence (prior) varies from place to place. Such heterogeneity is often unobservable and unmeasurable. The physician may need to be wary of this baseline information before other clinical and individual variables are added. 
+The study based to predict at risk individuals for CVD at individual level based on the information gleaned from the past.
 
-2. In Bayesian inference, all unknowns—observable (data) as well as unobservables (parameters and auxiliary variables)—are considered to be random and assigned probability distributions.These distributions best summarize the available information, and Bayesian inference then updates prior knowledge about the unobservables with information about them contained in the data.
+The individual risk is elicited by prior speculation (first impression) which is then updated by objective observed data (patient's history and laboratory findings) the concept called is called Bayesian clinical reasoning [9]. It models the clinical weights (regression coefficients for computing risk score) as a random variable specified by certain statistical distribution (e.g. normal distribution) rather than a fixed value that is assumed in the traditional risk prediction model based on a frequentist viewpoint. Credible intervals of predicted risk estimates were obtained by averaging out the uncertainty of parameters (clinical weights) to reflect the precision of predicting individual risk. Bayesian approach update the prior distribution with the likelihood based on current data into posterior distribution, which then turns into tomorrow's prior distribution when new evidence is entered.
+
+Case history: 
+For a male at a clinic for routine health evaluation, his health status based on prior information of a 5-year CVD risk assessment is 11.2% (95% CI: 7.8%– 15.6%) which was not sufficient enough to alert him for any intervention needed. But, after history-taking,, the added new information of smoking with over 2 pack per-day and family history of CVD (given the likelihood ratios of 1.62 and 1.47, respectively,), the bayesian gave the updated 5-year CVD risk by adding this new information with an increased risk to 30.9% (95% CI: 20.7%–39.8%). In Bayesian, the prior probability of CVD via a logistic regression model is incorporated to the five-year longitudinal follow-up data on newly diagnosed incident CVD cases, in a sequential approach to predict the individual risk prediction for CVD. This accounts for having a universal predictive model without considering such an ecological influence. After the consideration of ecological heterogeneity, the individual-level risk prediction for the risk for CVD, urges the patient to take a life-modification program (quit smoking, healthy diet and regular exercise) [@Liu2013]
+
+
+3. In Bayesian inference, all unknowns—observable (data) as well as unobservables (parameters and auxiliary variables)—are considered to be random and assigned probability distributions.These distributions best summarize the available information, and Bayesian inference then updates prior knowledge about the unobservables with information about them contained in the data.
 The prior distribution and likelihood function are both necessary parts of a Bayesian analysis. Depending on the strength of information contained in the measurements, the prior distribution may or may not influence the outcome or parts thereof. [@Klauenberg2015]
 
 
-3. Using a Bayesian approach, This study projected the increase in the rates of Atherosclerotic cardiovascular disease (ASCVD) in Asian countries. Given the significant personal and societal burden, the study aimed to accurately forecast ASCVD incidence rates to inform health care policy development and investments to targeted population.
+4. Using a Bayesian approach, This study projected the increase in the rates of Atherosclerotic cardiovascular disease (ASCVD) in Asian countries. Given the significant personal and societal burden, the study aimed to accurately forecast ASCVD incidence rates to inform health care policy development and investments to targeted population.
 Bayesian age-period-cohort (APC) models were then fitted to the observed data (1990-2021) to project age-standardized rates (with the mid-year 1990 population as the index) for the prevalence and mortality for IHD, stroke, and PAD from 2022 through 2040. Default log-normal priors chosen for each term in the model and the posterior estimates from the model fit were obtained to predict the incidence rates. [@Cotton2025]
 
 
@@ -177,10 +185,12 @@ ggplot1 = murders %>% ggplot(mapping = aes(x=population/10^6, y=total))
 -   Discuss the implications of your results.
 
 ## References
-references.bib
+
 
 1.Gao S, Chakraborty AK, Greiner R, Lewis MA, Wang H. Early detection of disease outbreaks and non-outbreaks using incidence data: A framework using feature-based time series classification and machine learning. PLOS Computational Biology [Internet]. 2025 Feb 1 [cited 2025 Aug 30];21(2):e1012782. Available from: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012782
 
-2. Klauenberg, K., Wübbeler, G., Mickan, B., Harris, P., & Elster, C. (2015). A tutorial on Bayesian Normal linear regression. Metrologia, 52(6), 878–892. https://doi.org/10.1088/0026-1394/52/6/878Links to an external site.
+2. Liu, Y. M., Chen, S. L. S., Yen, A. M. F., & Chen, H. H. (2013). Individual risk prediction model for incident cardiovascular disease: A Bayesian clinical reasoning approach. International Journal of Cardiology, 167(5), 2008–2012. https://doi.org/10.1016/j.ijcard.2012.05.016
 
-3. Cotton, A., Pedro RVO Salerno, M., Zhuo Chen, P., Salim Virani, M., Naveed Sattar, M., Sanjay Rajagopalan, M., & Salil V. Deo, M. (2025). Forecasting Atherosclerotic Cardiovascular Disease in South Asia Until 2040: A Bayesian Modeling Approach. JACC: Asia. https://doi.org/10.1016/J.JACASI.2025.06.014
+3. Klauenberg, K., Wübbeler, G., Mickan, B., Harris, P., & Elster, C. (2015). A tutorial on Bayesian Normal linear regression. Metrologia, 52(6), 878–892. https://doi.org/10.1088/0026-1394/52/6/878Links to an external site.
+
+4. Cotton, A., Pedro RVO Salerno, M., Zhuo Chen, P., Salim Virani, M., Naveed Sattar, M., Sanjay Rajagopalan, M., & Salil V. Deo, M. (2025). Forecasting Atherosclerotic Cardiovascular Disease in South Asia Until 2040: A Bayesian Modeling Approach. JACC: Asia. https://doi.org/10.1016/J.JACASI.2025.06.014
