@@ -79,23 +79,30 @@ Limitations:
 
 
 
-3. 
-Bayesian regression
-Problem: Analysis of subpopulations that exist with tumours and their ancestral relationships 
-Without examining the impact of priors through a sensitivity analysis and prior predictive checking, the researcher would not be aware of how sensitive results are to changes in the priors. 
-The individual parameters have a different amount of uncertainty in priors (hyperparameters). A larger variance has a greater amount of uncertainty surrounding the mean, and vice versa. The diffuse and weakly informative priors show more spread than the informative priors, owing to their larger variances. 
-Prior elicitation that derives the priors varies (data-based, experts,  or expert panels, generic expert-based). Prior results can be aligned or may not align with the likelihood and require prior sensitivity analysis to fully understand the influence of the prior on posterior estimates, depending on the sample size, subjectivity.
+3.	
+What is the goal of the paper?
+The study describes the stages of Bayesian analysis, specifying the prior and data models, deriving inference, model checking and refinement by discussing the importance of prior and posterior predictive checking, selecting a proper sampling technique from a posterior distribution, variational inference and variable selection and its application across various research fields. The study proposes strategies for reproducibility and reporting standards, outlining an updated WAMBS (when to Worry and how to Avoid the Misuse of Bayesian Statistics) checklist and also outline the impact of Bayesian analysis on artificial intelligence in the future. 
 
-Solution:
-Prior predictive checking can help prevent mistakes in the formalization of the priors, whether it is (informative, weakly informative, or diffuse). The normal distribution of the prior is specified by the hyperparameters (mean and variance, mean and standard deviation, or mean and precision (the inverse of the variance).
-Prior predictive distribution and the data are compared on  mean and standard deviation of the data, which are used to check prior predictive performance to reflect important characteristics of the data, such as skewness. Also, it is suggested to check the prior through the prior predictive kernel distributions.
+Why is it important?
+Bayesian statistics is suitable for quantitative researchers working across a broad range of science-related areas that have at least some knowledge of regression modelling. We
+How is it solved? – methods
+The study classified the priors into three categories based on the degree of (un)certainty (hyperparameters) surrounding the population parameter value: informative, weakly informative and diffuse. 
+The prior has its distribution as N( μ0 , σ^ 20) where a larger variance represents a greater amount of uncertainty surrounding. Prior elicitation (experts, generic expert, data -based, sample data using methods such as maximum likelihood or sample statistics, etc) constructed prior distribution. 
+Prior sensitivity analysis of the likelihood, to examine different forms of the model assess how the priors and the likelihood align and help understand the impact of the prior settings on posterior estimates, reflecting the variation not captured by the prior or likelihood alone. Prior estimation allow for data-informed shrinkage, enact regularization or influence algorithms towards a likely high-density region and improve estimation efficiency. Knowing the exact probabilistic specification of the priors for a complex model with smaller sample sizes is important as small sample convey less information, compared to priors. 
+To quantify the strength of observed data lends to possible value(s) for the unknown parameter(s). 
+ 
+In Bayesian inference, unknown parameters (random variables) have values that are varied while the (observed) data have values that are fixed, and the likelihood is a function of θ for the fixed data y. Therefore, the likelihood function summarizes a statistical model that stochastically generates all of the data, a range of possible values for θ and the observed data y.With having the prior, the likelihood, and the data, we obtain posterior distribution we model to the data to estimate the unknown parameters of the model. The model captures the primary factors that we wish to improve our understanding of. 
+Monte Carlo integration technique provide integrals using computer simulations of sampled values from a given distribution.The author mentioned packages BRMS and Blavaan in R for simplifying the use of the probabilistic programming language Stan.
 
-Method: Bayesian regression as the backbone of genetic association, multi-omics integration, and tumor phylogenetics.
+Variable selection after checking correlations among the variables can be easily incorporated into the analysis (ex- gene-to-gene interaction) to aid the identification of predictive genes in biomedical research. (genome-wide association studies). Spatial and temporal variability can be factored into Bayesian general linear models.
+A posterior distribution for a particular model can be used to simulate new data conditional on this distribution to assess and provides valid predictions to be used for extrapolating to future events.
 
+Results/limitations, if any.
+Bayesian approaches resulted in analyzing large-scale cancer genomic data sets to identify novel molecular changes that lead to cancer initiation and progression. It helps to identify the interactions between mutated genes and capture mutational signatures that highlight key genetic interactions with the potential to allow for genomic-based patient stratification in both clinical trials and the personalized use of therapeutics and assists in answering questions about evolutionary processes in cancer. 
 
-Applications:
-Bayesian approaches have provided a powerful alternative to frequentist approaches for assessing associations between genetic variants and a phenotype of interest in a population. The approach incorporated prior knowledge of phenotype relationships derived from a diagnosis classification tree, as from the International Classification of Diseases (ICD-10). 
-Multi-omics data sets are better analyzed using Bayesian solutions to the problem of multimodal data integration and in large-scale cancer genomic data sets to identify molecular changes associated with cancer initiation and progression. Phylogenetic analysis of heterogeneous cancers identifies subpopulations that exist within tumours and their ancestral relationships through the analysis of single-cell and bulk tissue-sequencing data.[@van2021]
+Limitations:
+In temporal models, posterior inference challenges are inherent to spatial and/or temporal dependencies, such as autocorrelation of parameters over time.
+[@van2021]
 
 4. Bayesian inference
 These three steps (prior elicitation, posterior calculation, and robustness to prior uncertainty and model adequacy) are critical to Bayesian inference. This paper gives guidance on uncertainty evaluation for Normal linear regression problems.
