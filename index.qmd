@@ -68,43 +68,122 @@ Cite new paper [@su2012linear]
 
 #Introduction#
 
-1. Forecasting the occurrence and non-occurrence of any disease is crucial in disease management. It requires long experimental procedures and non-outbreak prediction are not explored. Timely prediction of disease happenings could support effective implementation of preventative measures through early detection of disease outbreaks and non-outbreaks, providing valuable insights for mitigation strategies of novel diseases. [@gao2025early]
+1. Bayesian methods combine complex data 
+In this article, in the PCORI mission, addresses questions about health care from the patients’ perspective and make it easier for clinicians and patients to answer clinical questions using modern digital tools that incorporate the experiences of prior patients and  translate it to inform the decision at hand, taking into account each patient’s unique circumstances. 
 
-2. Rather than using expensive molecular information which is not easily available,the author identifies subjects at of cardiovascular disease (CVD),  thrugh the use of an alternative and an efficient approach to identifying by incorporating routinely-checked biological markers a cluster of multiple CVD risk factors like the metabolic syndrome, to classify the risk of underlying population by dint of Metabolic scores information  together with conventional risk factors (gender, heredity, smoking and other relevant factors). It is considered that different ethnic groups and areas with varied levels of socioeconomic status, have their own models which may not be applied to other areas with different socioeconomic status, because the baseline incidence (prior) varies from place to place. Such heterogeneity is often unobservable and unmeasurable. The physician may need to be wary of this baseline information before other clinical and individual variables are added. 
-The study based to predict at risk individuals for CVD at individual level based on the information gleaned from the past.
+Problem: Medical data includes unleashed health data, from DNA sequences to functional images of the brain to patient-reported outcomes and also the electronic health record captures patient’s sequence of health measurements, diagnoses, and treatments.
 
-The individual risk is elicited by prior speculation (first impression) which is then updated by objective observed data (patient's history and laboratory findings) the concept called is called Bayesian clinical reasoning [9]. It models the clinical weights (regression coefficients for computing risk score) as a random variable specified by certain statistical distribution (e.g. normal distribution) rather than a fixed value that is assumed in the traditional risk prediction model based on a frequentist viewpoint. Credible intervals of predicted risk estimates were obtained by averaging out the uncertainty of parameters (clinical weights) to reflect the precision of predicting individual risk. Bayesian approach update the prior distribution with the likelihood based on current data into posterior distribution, which then turns into tomorrow's prior distribution when new evidence is entered.
+Solution: The Bayesian methods combine complex data to produce predictions about an individual patient's health status, trajectory, and likely benefits and harms of interventions. 
 
-Case history: 
-For a male at a clinic for routine health evaluation, his health status based on prior information of a 5-year CVD risk assessment is 11.2% (95% CI: 7.8%– 15.6%) which was not sufficient enough to alert him for any intervention needed. But, after history-taking,, the added new information of smoking with over 2 pack per-day and family history of CVD (given the likelihood ratios of 1.62 and 1.47, respectively,), the bayesian gave the updated 5-year CVD risk by adding this new information with an increased risk to 30.9% (95% CI: 20.7%–39.8%). In Bayesian, the prior probability of CVD via a logistic regression model is incorporated to the five-year longitudinal follow-up data on newly diagnosed incident CVD cases, in a sequential approach to predict the individual risk prediction for CVD. This accounts for having a universal predictive model without considering such an ecological influence. After the consideration of ecological heterogeneity, the individual-level risk prediction for the risk for CVD, urges the patient to take a life-modification program (quit smoking, healthy diet and regular exercise) [@Liu2013]
+Method - 
+Bayesian hierarchical regression for longitudinal patient outcomes to  predict the health status, trajectory, and likely intervention effects for each member of a clinical population. The inputs are the predictor variables (X and R), health outcome measurements (Y), a prior distribution for the unknown health status (η), and the model structure that ties the observations to the unknowns. The model produces an estimate of the posterior distribution of the health status ηit for individual i at every time t. The model produces an estimate of the posterior distribution of the trend in health status for each value of the predictor variables that can include the treatment. The model produces an estimate of the marginal distribution of the regression coefficients; each coefficient measures how the outcome, health status, is associated with its predictor variable (R, X).
 
+Application: 
+The study tested the model on 3 case studies to (1) estimate the frequency with which various pathogens cause children’s pneumonia and predict which pathogen is likely to be causing a particular child’s pneumonia given her or his clinical data, potentially reducing unnecessary use of antibiotics; (2) infer whether a prostate cancer is indolent or aggressive for a patient under active surveillance; and (3) characterize the variation in multiple, time-varying symptoms of major mental disorders, including schizophrenia and depression, and then use this knowledge to provide patient-specific estimates of past and, likely, future trajectories.
 
-3. In Bayesian inference, all unknowns—observable (data) as well as unobservables (parameters and auxiliary variables)—are considered to be random and assigned probability distributions.These distributions best summarize the available information, and Bayesian inference then updates prior knowledge about the unobservables with information about them contained in the data.
-The prior distribution and likelihood function are both necessary parts of a Bayesian analysis. Depending on the strength of information contained in the measurements, the prior distribution may or may not influence the outcome or parts thereof. [@Klauenberg2015]
-
-
-4. Using a Bayesian approach, This study projected the increase in the rates of Atherosclerotic cardiovascular disease (ASCVD) in Asian countries. Given the significant personal and societal burden, the study aimed to accurately forecast ASCVD incidence rates to inform health care policy development and investments to targeted population.
-Bayesian age-period-cohort (APC) models were then fitted to the observed data (1990-2021) to project age-standardized rates (with the mid-year 1990 population as the index) for the prevalence and mortality for IHD, stroke, and PAD from 2022 through 2040. Default log-normal priors chosen for each term in the model and the posterior estimates from the model fit were obtained to predict the incidence rates. [@Cotton2025]
+Results:
+The bayesian hierarchical model is adaptable because (1) it is a likelihood-based approach. In a larger sample, the likelihood dominates the prior distribution for many key parameters such as regression coefficients. (2) use of priors (prior laboratory and clinical trials data) provide a reasonable range for the assay sensitivities that, once imposed through the prior assumptions, make the model identifiable (3) Markov chain Monte Carlo (MCMC) used to estimate the posterior distributions to avoid missing data and complex outcome measurements. Posterior distributions are easily understood by clinicians and patients and are easily visualized to communicate predictions of health status, trajectories, or likely intervention benefits.[@Zeger2020]
 
 
+2.	Importance of Bayesian methods in medical diagnosis and management 
+Problem:
+Conventional methods for medical diagnosis commonly use established clinical criteria and fixed numerical threshold which has the limitations and fail to capture the intricate relations between diagnostic tests and the varying prevalence of diseases. 
 
+Solution: To address these limitations, our research focuses on implementing Bayesian inference to calculate the posterior probabilities associated with disease diagnosis and developed a computational tool that employ Bayesian inference, calculate the posterior probability of disease diagnosis integrating prior probabilities of disease with distributions of diagnostic measurands in both diseased and nondiseased populations that enables the evaluation of the information on diagnostic measurements and the combination of data from multiple diagnostic tests, to improve diagnostic accuracy and precision while introducing flexibility, adaptability, and versatility into the diagnostic process. The study mentions though normal distribution is invaluable in statistical modeling, critical evaluation should be accompanied by an openness to adopt alternative statistical distributions when needed.
+
+Method
+Bayesian (logistic) regression for disease diagnosis with multiple tests.
+
+Application: National Health and Nutrition Examination Survey (NHANES) data was used to demonstrate the application of the program where fasting plasma glucose (FPG) and glycated hemoglobin A1c (HbA1c) were measurands used for Bayesian diagnosis of diabetes mellitus. The tool compared parametric and nonparametric distributions to calculate posterior probabilities for disease. 
+Result:
+Bayesian methodologies offer a framework with enhanced diagnostic precision through a more comprehensive probabilistic assessment. Nonparametric Bayesian model produced better fit to data distributions emphasizing the robustness of nonparametric techniques in capturing complex data distributions. Method can be applied to the real-world clinical trials, and also in more diagnostic modalities.[@Chatzimichail2023]
+
+
+
+3. Problem: Analysis of subpopulations that exist with tumours and their ancestral relationships 
+Without examining the impact of priors through a sensitivity analysis and prior predictive checking, the researcher would not be aware of how sensitive results are to changes in the priors. 
+The individual parameters have a different amount of uncertainty in priors (hyperparameters). A larger variance has a greater amount of uncertainty surrounding the mean, and vice versa. The diffuse and weakly informative priors show more spread than the informative priors, owing to their larger variances. 
+Prior elicitation that derives the priors varies (data-based, experts,  or expert panels, generic expert-based). Prior results can be aligned or may not align with the likelihood and require prior sensitivity analysis to fully understand the influence of the prior on posterior estimates, depending on the sample size, subjectivity.
+
+Solution:
+Prior predictive checking can help prevent mistakes in the formalization of the priors, whether it is (informative, weakly informative, or diffuse). The normal distribution of the prior is specified by the hyperparameters (mean and variance, mean and standard deviation, or mean and precision (the inverse of the variance).
+Prior predictive distribution and the data are compared on  mean and standard deviation of the data, which are used to check prior predictive performance to reflect important characteristics of the data, such as skewness. Also, it is suggested to check the prior through the prior predictive kernel distributions.
+
+Method: Bayesian regression as the backbone of genetic association, multi-omics integration, and tumor phylogenetics.
+
+
+Applications:
+Bayesian approaches have provided a powerful alternative to frequentist approaches for assessing associations between genetic variants and a phenotype of interest in a population. The approach incorporated prior knowledge of phenotype relationships derived from a diagnosis classification tree, as from the International Classification of Diseases (ICD-10). 
+Multi-omics data sets are better analyzed using Bayesian solutions to the problem of multimodal data integration and in large-scale cancer genomic data sets to identify molecular changes associated with cancer initiation and progression. Phylogenetic analysis of heterogeneous cancers identifies subpopulations that exist within tumours and their ancestral relationships through the analysis of single-cell and bulk tissue-sequencing data.[@van2021]
+
+4. These three steps (prior elicitation, posterior calculation, and robustness to prior uncertainty and model adequacy) are critical to Bayesian inference. This paper gives guidance on uncertainty evaluation for Normal linear regression problems.
+The general guidance for Normal linear regression tasks is explained using metrological example. Normal linear regression model. The basis for all these inferences is estimation 
+ 
+In Bayesian inference, all unknowns—observables (data) as well as unobservables (parameters and auxiliary variables)— are considered to be random and assigned probability dis-tributions. These distributions best summarize the available prior updates then information, and Bayesian inference knowledge about the unobservables with information about them contained in the data.
+ 
+ -prior distribution expressing the belief
+ -likelihood function as defined in expression
+ -posterior distribution that combines the prior belief about the unknowns with the information contained in the data.
+
+The prior knowledge from previous experiments can be summarized by pooling their posterior distributions. It is simpler and more robust to approximate (i.e. smooth) the average of the previous posterior distributions by a heavy-tailed, unimodal distribution from a parametric
+Family. [@Klauenberg2015]
 
 
 ## Methods
 
 -   Detail the models or algorithms used.
 
+
 -   Justify your choices based on the problem and data.
 
+PROBLEMS AND HEALTHCARE DATA 
+
+1.	Conventional regression is not efficient in using longitudinal, hierarchical, and multivariate data to analyze time-varying outcomes, correlations within patients, and dealing missing data in predicting individual patient health timelines and treatments over time 
+2.	Conventional diagnosis based on fixed cutoffs and rigid thresholds fails to capture and integrate the uncertainty and complex distributions of complex diagnostic tests. 
+3.	In Cancer genomics / multi-omics study on high-dimensional, sparse, and multimodal data, classical regression is prone to overfitting. Without sensitivity analysis, the priors are not captured and may strongly influence results or may be biased.
+Solutions
+In healthcare, Bayesian Regression Bayesian regression provides flexibility, uncertainty quantification, and the ability to incorporate prior knowledge, making it superior to conventional regression in complex biomedical contexts.
+
+METHOD - 
+1.	Clone Prevalence Modeling 
+•	PyClone-VI or PhyloWGS, the variant allele frequency (VAF) of each mutation is modeled as a function of:
+o	latent clonal prevalence (how many cells carry the mutation),
+o	tumor purity,
+o	copy number state,
+o	sequencing error.
+VAFij∼Binomial(nij, θij)) : where θij is modeled as a regression-like function of clone prevalence + copy number.
+
+These models regress observed sequencing reads (data level) on latent clone prevalences (parameter level). They add a hierarchical structure:
+o	Clone-level latent variables shared across mutations.
+o	Patient-level latent variables shared across clones.
+•	Priors are specified for clone prevalence distributions and tree structures.
+•	Posterior inference is made using Bayesian methods (MCMC in PhyloWGS, variational inference in PyClone-VI).
+
+
+2.	Bayesian Regression – run a logistic regression in a Bayesian framework:
+•	P(Disease∣Tests)∝P(Tests∣Disease)⋅P(Disease)
+•	Priors encode expected prevalence; likelihood comes from test results.
+•	Compared parametric vs. nonparametric Bayesian regression models to capture complex distributions.
+
+
+3.	Bayesian regression models are flexible tools and ties predictors (e.g., genetic variants, omics features) to outcomes (phenotype, clone prevalence).
+phenotype ~ genotype + covariates, with priors (genetic association studies)
+Regression links different data modalities (For multi-omics integration)
+Bayesian regression links observed variant frequencies to latent clone prevalences (hierarchical regression structure).
+
+
 *The common non-parametric regression model is*
-$Y_i = m(X_i) + \varepsilon_i$*, where* $Y_i$ *can be defined as the sum
-of the regression function value* $m(x)$ *for* $X_i$*. Here* $m(x)$ *is
-unknown and* $\varepsilon_i$ *some errors. With the help of this
-definition, we can create the estimation for local averaging i.e.*
+$Y_i = m(X_i) + \varepsilon_i$*, where* $Y_i$ *can be defined as the sum of the regression function value* $m(x)$ *for* $X_i$*. Here* $m(x)$ *is unknown and* $\varepsilon_i$ *some errors. 
+
+With the help of this definition, we can create the estimation for local averaging i.e.*
 $m(x)$ *can be estimated with the product of* $Y_i$ *average and* $X_i$
-*is near to* $x$*. In other words, this means that we are discovering
+*is near to* $x$*. 
+
+In other words, this means that we are discovering
 the line through the data points with the help of surrounding data
-points. The estimation formula is printed below [@R-base]:*
+points. 
+
+The estimation formula is printed below [@R-base]:*
 
 $$
 M_n(x) = \sum_{i=1}^{n} W_n (X_i) Y_i  \tag{1}
@@ -116,6 +195,10 @@ Weights are positive numbers and small if* $X_i$ *is far from* $x$*.*
 $$
 y_i = \beta_0 + \beta_1 X_1 +\varepsilon_i
 $$
+
+
+
+
 
 ## Analysis and Results
 
@@ -186,11 +269,11 @@ ggplot1 = murders %>% ggplot(mapping = aes(x=population/10^6, y=total))
 
 ## References
 
+Zeger, S. L., Wu, Z., Coley, Y., Fojo, A. T., Carter, B., O’Brien, K., Zandi, P., Cooke, M., Carey, V., Crainiceanu, C., Muscelli, J., Gherman, A., & Mekosh, J. (2020). Using a Bayesian Approach to Predict Patients’ Health and Response to Treatment. https://doi.org/10.25302/09.2020.ME.140820318
 
-1.Gao S, Chakraborty AK, Greiner R, Lewis MA, Wang H. Early detection of disease outbreaks and non-outbreaks using incidence data: A framework using feature-based time series classification and machine learning. PLOS Computational Biology [Internet]. 2025 Feb 1 [cited 2025 Aug 30];21(2):e1012782. Available from: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012782
+Chatzimichail, T., & Hatjimihail, A. T. (2023). A Bayesian Inference Based Computational Tool for Parametric and Nonparametric Medical Diagnosis. Diagnostics, 13(19). https://doi.org/10.3390/DIAGNOSTICS13193135
 
-2. Liu, Y. M., Chen, S. L. S., Yen, A. M. F., & Chen, H. H. (2013). Individual risk prediction model for incident cardiovascular disease: A Bayesian clinical reasoning approach. International Journal of Cardiology, 167(5), 2008–2012. https://doi.org/10.1016/j.ijcard.2012.05.016
+van de Schoot, R., Depaoli, S., King, R., Kramer, B., Märtens, K., Tadesse, M. G., Vannucci, M., Gelman, A., Veen, D., Willemsen, J., & Yau, C. (2021). Bayesian statistics and modelling. Nature Reviews Methods Primers, 1(1), 1–26. https://doi.org/10.1038/S43586-020-00001-2;SUBJMETA=531,639,648,705,706;KWRD=SCIENTIFIC+COMMUNITY,STATISTICS
 
-3. Klauenberg, K., Wübbeler, G., Mickan, B., Harris, P., & Elster, C. (2015). A tutorial on Bayesian Normal linear regression. Metrologia, 52(6), 878–892. https://doi.org/10.1088/0026-1394/52/6/878Links to an external site.
+Klauenberg, K., Wübbeler, G., Mickan, B., Harris, P., & Elster, C. (2015). A tutorial on Bayesian Normal linear regression. Metrologia, 52(6), 878–892. https://doi.org/10.1088/0026-1394/52/6/878
 
-4. Cotton, A., Pedro RVO Salerno, M., Zhuo Chen, P., Salim Virani, M., Naveed Sattar, M., Sanjay Rajagopalan, M., & Salil V. Deo, M. (2025). Forecasting Atherosclerotic Cardiovascular Disease in South Asia Until 2040: A Bayesian Modeling Approach. JACC: Asia. https://doi.org/10.1016/J.JACASI.2025.06.014
