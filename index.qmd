@@ -104,18 +104,61 @@ Limitations:
 In temporal models, posterior inference challenges are inherent to spatial and/or temporal dependencies, such as autocorrelation of parameters over time.
 [@van2021]
 
-4. Bayesian inference
-These three steps (prior elicitation, posterior calculation, and robustness to prior uncertainty and model adequacy) are critical to Bayesian inference. This paper gives guidance on uncertainty evaluation for Normal linear regression problems.
-The general guidance for Normal linear regression tasks is explained using metrological example. Normal linear regression model. The basis for all these inferences is estimation 
- 
-In Bayesian inference, all unknowns—observables (data) as well as unobservables (parameters and auxiliary variables)— are considered to be random and assigned probability dis-tributions. These distributions best summarize the available prior updates then information, and Bayesian inference knowledge about the unobservables with information about them contained in the data.
- 
- -prior distribution expressing the belief
- -likelihood function as defined in expression
- -posterior distribution that combines the prior belief about the unknowns with the information contained in the data.
+4. 
+What is the goal of the paper?
+The author provides guidance on Bayesian inference for regression on performing Bayesian Normal linear regression in metrology to calibrate instruments and evaluate inter-laboratory comparisons to determine fundamental constants. 
 
-The prior knowledge from previous experiments can be summarized by pooling their posterior distributions. It is simpler and more robust to approximate (i.e. smooth) the average of the previous posterior distributions by a heavy-tailed, unimodal distribution from a parametric
-Family. [@Klauenberg2015]
+Why is it important?
+The measurement errors are assumed to be additive, independent and identically distributed according to a Gaussian distribution with mean zero and variance σ2, which is usually unknown. Regression use in metrology is often applied to calibrate instruments, evaluate inter-laboratory comparisons or determine fundamental constants, but a regression model cannot be uniquely formulated as a measurement function, and the Guide to the Expression of Uncertainty in Measurement (GUM) and its supplements are not applicable directly. 
+Bayesian inference has the advantage of accounting for additional a priori information, which typically robustifies analyses. 
+
+How is it solved? – methods
+These three steps (prior elicitation, posterior calculation, and robustness to prior uncertainty
+and model adequacy) and model assumptions are critical to Bayesian inference.
+In Bayesian inference, all unknowns—observables (data) as well as unobservables (parameters and auxiliary variables) considered to be random are assigned probability distributions to summarize the available information, and it updates prior knowledge about the unobservables with information about them contained in the data.The prior distribution and likelihood function are parts of a Bayesian analysis and it can be provided by simple graphical displays, by sensitivity analyses or model checking. 
+For Normal linear regression problems (1), a convenient family for a prior distribution for θ and σ2 is the Normal inverse Gamma (NIG) distribution to a posterior from the same family of (NIG) distributions or (2) alternative families of prior distributions, hierarchical priors which assign an additional layer of distributions to uncertain prior parameters or non-para- metric priors may be considered. Graphical display options of prior and posterior distributions enhance the elicitation and interpretation process, respectively.
+•	The NIG prior - if the variance σ2 of observations is known is a conjugate prior distribution 
+•	Vague or non-informative prior distributions can be derived from the NIG prior 
+Bayesian inference is influenced by uncertainty in the transformation of prior knowledge to prior distributions, in the assumptions of the statistical model, and mistakes in data acquisition all influence the inference.
+
+Results/limitations, if any.
+The knowledge from related previous experiments (Normal inverse Gamma distributions) allow for analytic posterior calculations of many quantities of interest.
+ [@Klauenberg2015]
+ 
+ 
+5. 
+What is the goal of the paper?
+The goal of this article is therefore to develop a Bayesian model in which a linear regression analysis on current data is augmented with the reported regression coefficients (and standard errors) of previous studies. The study developed and conducted test a formal method for augmenting data in linear regression analyses with previous studies  including both exchangeable and unexchangable.
+
+Why is it important?
+Due to the frequent combination of multiple testing with relatively low statistical power, is problematic in the framework of null hypothesis significance testing. Linear regression analyses performed do not account for the published results their summary statistics) from similar previous studies. The results from previous studies are source 
+of relevant and readily available information and ignoring this information affects both the stability and the precision of the parameter estimates report low than they could have been, and the conclusions that can be drawn are less certain and more likely to be affected by sampling variation. Multiple linear regression, includes separate significance tests for all regression coefficients. Combined with rather modest sample sizes, this makes it likely for different studies to find different sets of statistically significant predictors and to address the use of larger samples, is not realistic. 
+
+How is it solved? – methods
+Bayesian linear regression accommodates prior knowledge, overcoming the absence of these formal studies  from the literature.
+Bayesian linear regression handle the issues of increasing the sample size and to augment the data of a new study with previous results (regression coefficients and standard errors) from similar studies was an alternative. It solved the issue of univariate case issue and also on combining evidence restricted to specific predictors from different linear regression analysis (as in meta-analysis). It was a better method to resolve the issue of simultaneously combining multiple regression parameters per study, separately that ignored the relation between the regression coefficients. 
+To construct informative priors using historical data from the previous studies (using the data) was not be possible in practice,  Bayesian linear regression developed a model and included reported summary statistics from previous studies and provided a more acceptable solution when data from previous studies are not (realistically) obtainable.Categorized the model into - 
+1.	Exchangable- when the current data and previous studies all have the same set of predictors.
+2.	Unexchangable – when the predictors were different 
+Bayesian linear regression – to yield the posterior density of the model parameters, which reflects the updated knowledge about the model parameters after having observed the data, steps mentioned are-
+•	To calculate the probability density function for the data given the unknown model
+parameters; taken as a function of those model parameters, this is referred to as the likelihood function. 
+•	The second part is the prior density function of the model parameters, which quantifies what is assumed to be known about the model parameters prior to observing the data. 
+Study applied Standard multiple linear regression model, with the integration of the prior the to obtain joint posterior density using Gibbs sampler, an Ordinary Least Squares linear regression was then applied to each of these samples to obtain the estimated regression coefficients B and the corresponding standard errors S.
+And a hierarchical version of the replication model was developed for situations where studies are not exchangeable.
+
+Results/limitations, if any.
+•	Incorporating the results of previous studies in a linear regression on new data does yield a significant better parameter estimate with an adequate approximation of using the actual data of those previous studies.
+•	About how much would be gained in comparison to using just the new data, and how large would the difference be with the ideal situations in which data from previous studies were available- it resulted in encouraging performance.
+•	Performance of the two versions (exchangeable and unexchangeable) of the replication model were consistently superior to using current data alone.
+•	It can thus be concluded that the model developed in this article offers the possibility of obtaining significantly better parameter estimates in a linear regression setting without needing to expend a prohibitive amount of time and energy trying to obtain data from the previous studies.
+•	Hierarchical version (unexchangeable) of the model offers the advantage of being able to address questions about differences between studies and thus allows for explicit testing of the exchangeability assumption.
+
+Limitations
+•	The restriction that all studies have to have the same set of predictors.
+•	A problem would arise when the predictor variables were correlated.
+[@deLeeuwAugmenting]
+
 
 
 ## Methods
@@ -255,11 +298,13 @@ ggplot1 = murders %>% ggplot(mapping = aes(x=population/10^6, y=total))
 
 ## References
 
-Zeger, S. L., Wu, Z., Coley, Y., Fojo, A. T., Carter, B., O’Brien, K., Zandi, P., Cooke, M., Carey, V., Crainiceanu, C., Muscelli, J., Gherman, A., & Mekosh, J. (2020). Using a Bayesian Approach to Predict Patients’ Health and Response to Treatment. https://doi.org/10.25302/09.2020.ME.140820318
+1. Zeger, S. L., Wu, Z., Coley, Y., Fojo, A. T., Carter, B., O’Brien, K., Zandi, P., Cooke, M., Carey, V., Crainiceanu, C., Muscelli, J., Gherman, A., & Mekosh, J. (2020). Using a Bayesian Approach to Predict Patients’ Health and Response to Treatment. https://doi.org/10.25302/09.2020.ME.140820318
 
-Chatzimichail, T., & Hatjimihail, A. T. (2023). A Bayesian Inference Based Computational Tool for Parametric and Nonparametric Medical Diagnosis. Diagnostics, 13(19). https://doi.org/10.3390/DIAGNOSTICS13193135
+2. Chatzimichail, T., & Hatjimihail, A. T. (2023). A Bayesian Inference Based Computational Tool for Parametric and Nonparametric Medical Diagnosis. Diagnostics, 13(19). https://doi.org/10.3390/DIAGNOSTICS13193135
 
-van de Schoot, R., Depaoli, S., King, R., Kramer, B., Märtens, K., Tadesse, M. G., Vannucci, M., Gelman, A., Veen, D., Willemsen, J., & Yau, C. (2021). Bayesian statistics and modelling. Nature Reviews Methods Primers, 1(1), 1–26. https://doi.org/10.1038/S43586-020-00001-2;SUBJMETA=531,639,648,705,706;KWRD=SCIENTIFIC+COMMUNITY,STATISTICS
+3. van de Schoot, R., Depaoli, S., King, R., Kramer, B., Märtens, K., Tadesse, M. G., Vannucci, M., Gelman, A., Veen, D., Willemsen, J., & Yau, C. (2021). Bayesian statistics and modelling. Nature Reviews Methods Primers, 1(1), 1–26. https://doi.org/10.1038/S43586-020-00001-2;SUBJMETA=531,639,648,705,706;KWRD=SCIENTIFIC+COMMUNITY,STATISTICS
 
-Klauenberg, K., Wübbeler, G., Mickan, B., Harris, P., & Elster, C. (2015). A tutorial on Bayesian Normal linear regression. Metrologia, 52(6), 878–892. https://doi.org/10.1088/0026-1394/52/6/878
+4. Klauenberg, K., Wübbeler, G., Mickan, B., Harris, P., & Elster, C. (2015). A tutorial on Bayesian Normal linear regression. Metrologia, 52(6), 878–892. https://doi.org/10.1088/0026-1394/52/6/878
+
+5. de Leeuw, C., & Klugkist, I. (2012). Augmenting Data With Published Results in Bayesian Linear Regression. Multivariate Behavioral Research, 47(3), 369–391. https://doi.org/10.1080/00273171.2012.673957
 
