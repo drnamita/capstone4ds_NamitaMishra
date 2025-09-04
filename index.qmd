@@ -34,73 +34,54 @@ Nice report!
 
 ## Introduction
 
-The introduction should:
+1. 
 
--   Develop a storyline that captures attention and maintains interest.
+What is the goal of the paper?
+The authors aimed to develop a bayesian hierarchical model for multivariate longitudinal data to predict the health status, trajectory, and likely intervention effects for each member of a clinical population in the PCORI mission, and to address questions about health care from patients and clinicians.
 
--   Your audience is your peers
+Why is it important?
+Medical data includes DNA sequences, functional images of the brain, patient-reported outcomes and the electronic health record capturing patient’s sequence of health measurements, diagnoses, and treatments. Full use of the electronic health record (EHR) of patients could improve diagnostic accuracy and prediction of treatment effects, since the standard approaches for analyzing clinical data are not adequate for this purpose. 
+The bayesian hierarchical model combines diverse sources of prior knowledge and patient data with evidence, to predict the patient’s health status, trajectory, and/or likely benefits of interventions. Visualizations of characteristics of posterior distributions can be immediately understood by clinicians and patients as relevant to their decision.
 
--   Clearly state the problem or question you're addressing.
+How is it solved? – methods
+They applied Bayesian hierarchical regression for multivariate longitudinal patient data using open-source R-packages was developed 2 levels—time within person and persons within a population
+The model comprised: the effects of exogenous (eg, age, clinical history) and endogenous (eg, current treatment) variables on the individual’s health status; multivariate health measurements for health status; the effects of health measurements at one time on subsequent interventions.
+The model produces an estimate of the posterior distribution of the trend in health status for each value of the predictor variables and produces an estimate of the marginal distribution of the regression coefficients; each coefficient measures how the outcome, health status, is associated with its predictor variable (R, X).
+In a larger sample, the likelihood dominates the prior distribution for key parameters such as regression coefficients. The bayesian hierarchical model is adaptable because (1) it is a likelihood-based approach.(2) use of priors (prior laboratory and clinical trials data) provide a reasonable range for the assay sensitivities that, once imposed through the prior assumptions, make the model identifiable (3) Markov chain Monte Carlo (MCMC) estimate the posterior distributions to avoid missing data and complex outcome measurements.
 
-<!-- -->
-
--   Introduce why it is relevant needs.
-
--   Provide an overview of your approach.
-
-Example of writing including citing references:
-
-*This is an introduction to ..... regression, which is a non-parametric
-estimator that estimates the conditional expectation of two variables
-which is random. The goal of a kernel regression is to discover the
-non-linear relationship between two random variables. To discover the
-non-linear relationship, kernel estimator or kernel smoothing is the
-main method to estimate the curve for non-parametric statistics. In
-kernel estimator, weight function is known as kernel function
-[@efr2008]. Cite this paper [@bro2014principal]. The GEE [@wang2014].
-The PCA [@daffertshofer2004pca]*. Topology can be used in machine
-learning [@adams2021topology]
-
-For Symbolic Regression [@wang2019symbolic] *This is my work and I want
-to add more work...*
-
-Cite new paper [@su2012linear]
-
-#Introduction#
-
-1. Bayesian methods combine complex data 
-In this article, in the PCORI mission, addresses questions about health care from the patients’ perspective and make it easier for clinicians and patients to answer clinical questions using modern digital tools that incorporate the experiences of prior patients and  translate it to inform the decision at hand, taking into account each patient’s unique circumstances. 
-
-Problem: Medical data includes unleashed health data, from DNA sequences to functional images of the brain to patient-reported outcomes and also the electronic health record captures patient’s sequence of health measurements, diagnoses, and treatments.
-
-Solution: The Bayesian methods combine complex data to produce predictions about an individual patient's health status, trajectory, and likely benefits and harms of interventions. 
-
-Method - 
-Bayesian hierarchical regression for longitudinal patient outcomes to  predict the health status, trajectory, and likely intervention effects for each member of a clinical population. The inputs are the predictor variables (X and R), health outcome measurements (Y), a prior distribution for the unknown health status (η), and the model structure that ties the observations to the unknowns. The model produces an estimate of the posterior distribution of the health status ηit for individual i at every time t. The model produces an estimate of the posterior distribution of the trend in health status for each value of the predictor variables that can include the treatment. The model produces an estimate of the marginal distribution of the regression coefficients; each coefficient measures how the outcome, health status, is associated with its predictor variable (R, X).
-
-Application: 
-The study tested the model on 3 case studies to (1) estimate the frequency with which various pathogens cause children’s pneumonia and predict which pathogen is likely to be causing a particular child’s pneumonia given her or his clinical data, potentially reducing unnecessary use of antibiotics; (2) infer whether a prostate cancer is indolent or aggressive for a patient under active surveillance; and (3) characterize the variation in multiple, time-varying symptoms of major mental disorders, including schizophrenia and depression, and then use this knowledge to provide patient-specific estimates of past and, likely, future trajectories.
-
-Results:
-The bayesian hierarchical model is adaptable because (1) it is a likelihood-based approach. In a larger sample, the likelihood dominates the prior distribution for many key parameters such as regression coefficients. (2) use of priors (prior laboratory and clinical trials data) provide a reasonable range for the assay sensitivities that, once imposed through the prior assumptions, make the model identifiable (3) Markov chain Monte Carlo (MCMC) used to estimate the posterior distributions to avoid missing data and complex outcome measurements. Posterior distributions are easily understood by clinicians and patients and are easily visualized to communicate predictions of health status, trajectories, or likely intervention benefits.[@Zeger2020]
+Results/limitations, if any.
+Three case studies on pneumonia etiology in children, prostate cancer, and major mental disorders, were chosen to provide different challenges to the model development. In Prostate Cancer Case Study to correctly identify low risk patient population, they developed and applied hierarchical model to possibly reduce the risk overtreatment, complications and adverse effects from treatment, as well as financial burden, for patients (Disease reclassification). Prostate cancer software was then implemented within the JHM HER.
+Limitation: the models were entirely parametric and recommend extensions to nonparametric or more flexible parametric models. To have improved approach for neuroimage or genomic data.[@Zeger2020Using]
 
 
-2.	Importance of Bayesian methods in medical diagnosis and management 
-Problem:
-Conventional methods for medical diagnosis commonly use established clinical criteria and fixed numerical threshold which has the limitations and fail to capture the intricate relations between diagnostic tests and the varying prevalence of diseases. 
+2.	
+What is the goal of the paper?
+The authors aim to apply computational tool implementing Bayesian inference to calculate the posterior probability of disease diagnosis to develop three modules designed to define and compare parametric (with a fixed set of parameters)  and nonparametric distributions (which do not make a priori assumptions about the distribution’s mathematical form) and analyses National Health and Nutrition Examination Survey datasets from two separate diagnostic tests on both diseased and nondiseased populations. 
 
-Solution: To address these limitations, our research focuses on implementing Bayesian inference to calculate the posterior probabilities associated with disease diagnosis and developed a computational tool that employ Bayesian inference, calculate the posterior probability of disease diagnosis integrating prior probabilities of disease with distributions of diagnostic measurands in both diseased and nondiseased populations that enables the evaluation of the information on diagnostic measurements and the combination of data from multiple diagnostic tests, to improve diagnostic accuracy and precision while introducing flexibility, adaptability, and versatility into the diagnostic process. The study mentions though normal distribution is invaluable in statistical modeling, critical evaluation should be accompanied by an openness to adopt alternative statistical distributions when needed.
+Why is it important?
+Medical diagnosis is crucial for treatment and management decisions and uses conventional methods for diagnosis using clinical criteria and fixed numerical thresholds limits capturing other information about the intricate relations between diagnostic tests and the varying prevalence of diseases. The probability distributions associated with quantitative diagnostic test outcomes often demonstrate some overlap between the diseased and nondiseased groups. Dichotomous method fail to capture the complexity and heterogeneity of disease presentations across diverse populations. The applicability of the normal distribution in conventional method is critiqued, especially when dealing with clinical measurands that exhibit skewness, bimodality, or multimodality
 
-Method
-Bayesian (logistic) regression for disease diagnosis with multiple tests.
+How is it solved? – methods
+To authors explored and developed specialized computational tool employing Bayesian inference (Bayesian diagnostic approach is) to calculate the posterior probability of disease diagnosis in theWolfram Language.
+Bayesian paradigm, calculates and integrate prior probabilities of disease with distributions of diagnostic measurands in both diseased and nondiseased populations, the approach enables the evaluation of the information conveyed via diagnostic measurements and the combination of data from multiple diagnostic tests, to improve diagnostic accuracy and precision while introducing flexibility, adaptability, and versatility into the diagnostic process. The foundational data is crucial in establishing the essential context against which new diagnostic measurements can be compared and the absence of such normative data could potentially compromise the reliability and validity of Bayesian diagnostic methods.
 
-Application: National Health and Nutrition Examination Survey (NHANES) data was used to demonstrate the application of the program where fasting plasma glucose (FPG) and glycated hemoglobin A1c (HbA1c) were measurands used for Bayesian diagnosis of diabetes mellitus. The tool compared parametric and nonparametric distributions to calculate posterior probabilities for disease. 
-Result:
-Bayesian methodologies offer a framework with enhanced diagnostic precision through a more comprehensive probabilistic assessment. Nonparametric Bayesian model produced better fit to data distributions emphasizing the robustness of nonparametric techniques in capturing complex data distributions. Method can be applied to the real-world clinical trials, and also in more diagnostic modalities.[@Chatzimichail2023]
+Results/limitations, if any.
+Nonparametric Bayesian models produce a better fit to data distributions, considering limited existing literature and emphasizes the robustness in capturing complex data distributions.
+The nonparametric Bayesian probabilities for disease exhibited multimodal patterns,
+in contrast to the bimodal, double sigmoidal curves generated by parametric models.
+
+Limitations: 
+•	The models were entirely parametric and recommend extensions to nonparametric or more flexible parametric models and aim to improv approach for neuroimage or genomic data.
+•	Due to limited availability of scholarly publications is an issue with over-dependence on Prior Probabilities 
+•	Elevated Uncertainty due to insufficient data contributes to broader confidence intervals in the computed posterior probabilities
+•	Systemic bias due to unrepresentative datasets compromise the fidelity of Bayesian calculations.
+•	Given the lack of comprehensive data, it is pertinent to combine Bayesian methods with other statistical and computational techniques for better diagnostic modalities. [@Chatzimichail2023]
 
 
 
-3. Problem: Analysis of subpopulations that exist with tumours and their ancestral relationships 
+3. 
+Bayesian regression
+Problem: Analysis of subpopulations that exist with tumours and their ancestral relationships 
 Without examining the impact of priors through a sensitivity analysis and prior predictive checking, the researcher would not be aware of how sensitive results are to changes in the priors. 
 The individual parameters have a different amount of uncertainty in priors (hyperparameters). A larger variance has a greater amount of uncertainty surrounding the mean, and vice versa. The diffuse and weakly informative priors show more spread than the informative priors, owing to their larger variances. 
 Prior elicitation that derives the priors varies (data-based, experts,  or expert panels, generic expert-based). Prior results can be aligned or may not align with the likelihood and require prior sensitivity analysis to fully understand the influence of the prior on posterior estimates, depending on the sample size, subjectivity.
@@ -116,7 +97,8 @@ Applications:
 Bayesian approaches have provided a powerful alternative to frequentist approaches for assessing associations between genetic variants and a phenotype of interest in a population. The approach incorporated prior knowledge of phenotype relationships derived from a diagnosis classification tree, as from the International Classification of Diseases (ICD-10). 
 Multi-omics data sets are better analyzed using Bayesian solutions to the problem of multimodal data integration and in large-scale cancer genomic data sets to identify molecular changes associated with cancer initiation and progression. Phylogenetic analysis of heterogeneous cancers identifies subpopulations that exist within tumours and their ancestral relationships through the analysis of single-cell and bulk tissue-sequencing data.[@van2021]
 
-4. These three steps (prior elicitation, posterior calculation, and robustness to prior uncertainty and model adequacy) are critical to Bayesian inference. This paper gives guidance on uncertainty evaluation for Normal linear regression problems.
+4. Bayesian inference
+These three steps (prior elicitation, posterior calculation, and robustness to prior uncertainty and model adequacy) are critical to Bayesian inference. This paper gives guidance on uncertainty evaluation for Normal linear regression problems.
 The general guidance for Normal linear regression tasks is explained using metrological example. Normal linear regression model. The basis for all these inferences is estimation 
  
 In Bayesian inference, all unknowns—observables (data) as well as unobservables (parameters and auxiliary variables)— are considered to be random and assigned probability dis-tributions. These distributions best summarize the available prior updates then information, and Bayesian inference knowledge about the unobservables with information about them contained in the data.
@@ -130,11 +112,6 @@ Family. [@Klauenberg2015]
 
 
 ## Methods
-
--   Detail the models or algorithms used.
-
-
--   Justify your choices based on the problem and data.
 
 PROBLEMS AND HEALTHCARE DATA 
 
@@ -258,6 +235,8 @@ ggplot1 = murders %>% ggplot(mapping = aes(x=population/10^6, y=total))
 -   **Tell a story about what the data reveals.**
 
 ```{r}
+
+
 
 ```
 
