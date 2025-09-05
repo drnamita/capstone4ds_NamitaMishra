@@ -159,7 +159,28 @@ Limitations
 •	A problem would arise when the predictor variables were correlated.
 [@deLeeuwAugmenting]
 
-
+6. [@LiuIndividual]
+What is the goal of the paper?
+The develop a proposed models using a longitudinal follow-up cohort study to predict the risk of incident cardiovascular disease by incorporating demographic features (basic), six metabolic syndrome components (metabolic score) and conventional risk factors (enhanced model). The study on participants free of CVD at baseline, followed up over five years, used  Bayesian clinical reasoning model to diagnose new CVD cases.
+Why is it important?
+•	Considering early diagnosis and prevention, identifying subjects with high risk for cardiovascular disease (CVD) is of paramount importance to health interventions. 
+•	The limited molecular information (costly and unavilabilty) to clinical practice look for alternative approaches to efficiently identify high-risk subjects using information form routinely-checked biological markers before doing these expensive molecular tests .
+•	Framingham Risk Score method, tailored for such a purpose is not sufficient because of the differences in ethnic groups and areas, varied socio-economic status,
+require the construction of their own models. Heterogeneity (variation with geographic, ethnic group, and nation, and different characteristics of social contextual network) is often unobservable and un-measurable.
+How is it solved? – methods
+Subjects enrolled in a Keelung Community-based Integrated Screening (KCIS) Program, for mass screening (20–79 years) in the Keelung city of Taiwan, followed for 5 years to identify incident cancers and chronic diseases (cardiovascular disease).
+The study classified the risk of having incident CVD cases or death from CVD by dint of available calculated standardized risk score of the MetS components (fasting glucose, blood pressure, HDL-C, triglyceride and waist circumference) together with conventional risk factors (gender, heredity, smoking, alcohol drinking, family history of parent's CVD and betel quid and other relevant factors). 
+Emulate a clinician's evaluation process, the author used Bayesian clinical reasoning approach in a sequential manner to develop three models considering regression coefficients of all predictors as normal distribution for individual risk prediction allowing for uncertainty of clinical weights. The credible intervals of predicted risk estimates were obtained by averaging out.
+The individual risk is elicited by prior speculation (first impression) updated by objective observed data (patient's history and laboratory findings). In Bayesian clinical reasoning model, the regression coefficients for computing risk score were as random variable with certain statistical distribution (e.g. normal distribution) rather than a fixed value (traditional risk prediction model by frequentist). The updated prior distribution with the likelihood based on current data provided into posterior distribution to predict the risk for a specific disease. 
+The (basic) basic model was developed via logistic regression which used prior information constructed on gender, age, age2 and period in further analysis. The second (classical) model, the metabolic score model (MS model), was established based on six MetS components and then the third (enhanced model) incorporated information on smoking, drinking, betel-quid, and family history of CVD.
+Results/limitations, if any- 
+•	Compared to the basic model and classical model, the enhanced model had better performance. 
+•	The proposed models predicted CVD at individual level by incorporating routine information with a sequential Bayesian clinical reasoning approach. Patients’s background makes a significant contribution to baseline risk. 
+•	Even with ecological heterogeneity, the regression model adopts individual characteristics to make individual risk prediction for the risk for CVD.
+Limitations –
+•	whether the interactions between age, gender, metabolic score and other risk factors should be included.
+•	The use of enhanced model should be validated through external validation by applying the proposed models to new subjects not included in the training the parameters of model.
+[@LiuIndividual]
 
 ## Methods
 
@@ -307,4 +328,6 @@ ggplot1 = murders %>% ggplot(mapping = aes(x=population/10^6, y=total))
 4. Klauenberg, K., Wübbeler, G., Mickan, B., Harris, P., & Elster, C. (2015). A tutorial on Bayesian Normal linear regression. Metrologia, 52(6), 878–892. https://doi.org/10.1088/0026-1394/52/6/878
 
 5. de Leeuw, C., & Klugkist, I. (2012). Augmenting Data With Published Results in Bayesian Linear Regression. Multivariate Behavioral Research, 47(3), 369–391. https://doi.org/10.1080/00273171.2012.673957
+
+6. Liu YM, Chen SLS, Yen AMF, Chen HH. Individual risk prediction model for incident cardiovascular disease: A Bayesian clinical reasoning approach. International Journal of Cardiology [Internet]. 2013 Sep 1 [cited 2025 Aug 28];167(5):2008–12. Available from: https://pubmed.ncbi.nlm.nih.gov/22658349/
 
